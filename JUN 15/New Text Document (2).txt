@@ -1,0 +1,53 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define gc getchar
+struct area{ll x;ll y;};
+bool myfunc(struct area a1,struct area a2){
+if(a1.x<a2.x)return true;
+else return false;}
+bool myfunc1(struct area a1,struct area a2){
+if(a1.y<a2.y)return true;
+else return false;}
+ 
+ll rt() {
+  char c = gc();
+  while(c<'0' || c>'9') c = gc();
+  ll ret = 0;
+  while(c>='0' && c<='9') {
+    ret = 10 * ret + c - 48;
+    c = gc();
+  }
+  return ret;
+}
+int main()
+{ll t,n,i,*a,k,j,s,max1,u,count1,*d;
+t=rt();
+while(t--)
+{
+k=rt();area b[k];for(j=0;j<k;j++){
+n=rt();max1=0;
+a=new ll[n];
+//c=new ll[k];
+for(i=0;i<n;i++)
+{a[i]=rt();
+s=rt();}
+//for(i=0;i<n;i++)
+//    c[i]=a[i];
+sort(a,a+n);//sort(c,c+n);
+max1=a[n-1];//else max1=c[n-1];
+/*for(i=0;i<2*n;i+=2)
+{sum1+=((a[i]*a[i+3])-(a[i+1]*a[i+2]));
+}sum1+=((a[(2*n)-2]*a[1])-(a[(2*n)-1]*a[0]));*/
+ 
+b[j].x=max1;b[j].y=j;
+}
+ 
+sort(b,b+k,myfunc);
+for(i=0;i<k;i++){
+    b[i].x=i;
+}
+sort(b,b+k,myfunc1);
+for(i=0;i<k;i++){
+cout<<b[i].x<<" ";}
+cout<<endl;}}

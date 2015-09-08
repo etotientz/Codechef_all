@@ -1,0 +1,96 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+ 
+	long long int i,p,l,t,u;
+	char a[100000],a1[100000],ch;
+	cin>>i;
+	while(i--)
+	{
+		cin>>a;strcpy(a1,a);
+		l=0;p=0;t=0;u=strlen(a1);ch=a1[0];
+		while(l<u)
+		{
+		if(a[0]=='+')
+		{
+ 
+		if(((l+1)%2)!=0)
+		{
+			if(a[l+1]=='+')
+		{
+			a[l+1]='-';p++;
+		}
+		}
+		else{
+			if(a[l+1]=='-')
+		{
+			a[l+1]='-';p++;
+			}
+ 
+		}
+	    }
+	    if(a[0]=='-')
+	    {	if(((l+1)%2)!=0)
+		{
+			if(a[l+1]=='-')
+			{
+			a[l+1]='+';p++;}
+ 
+ 
+		}
+		else{
+			if(a[l+1]=='+')
+				{
+			a[l+1]='+';p++;}
+ 
+		}
+	    }
+	     l++;
+		}
+		l=0;
+		while(l<u)
+		{
+		if(ch=='+')
+		{
+			if((l%2)==0)
+			{
+				if(a1[l]=='+')
+				{a1[l]='-';t++;
+				}
+ 
+			}
+			else
+			{
+				if(a1[l]=='-')
+				{a1[l]='+',t++;
+				}
+			}
+ 
+		}
+		else
+		{
+			if((l%2)==0)
+			{
+				if(a1[l]=='-')
+				{a1[l]='+';t++;
+				}
+ 
+			}
+			else
+			{
+				if(a1[l]=='+')
+				{a1[l]='-',t++;
+				}
+			}
+		}
+	   l++;
+	   }
+ 
+		if(t<p)
+		cout<<t<<endl;
+		else
+		cout<<p<<endl;
+	}
+return 0;
+}

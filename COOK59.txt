@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define gc getchar
+ll rt() {
+  char c = gc();
+  while(c<'0' || c>'9') c = gc();
+  ll ret = 0;
+  while(c>='0' && c<='9') {
+    ret = 10 * ret + c - 48;
+    c = gc();
+  }
+  return ret;
+}
+int main()
+{ll t,n,i,p,sum;
+t=rt();
+while(t--)
+{n=rt();p=rt();sum=0;
+ while(n--){
+ cin>>i;sum+=i;}
+ if(p==1&&sum%2==0)
+ cout<<"odd"<<endl;
+ else if(p==1&&sum%2==1)
+    cout<<"even"<<endl;
+ else cout<<"even"<<endl;}}

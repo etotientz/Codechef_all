@@ -1,0 +1,98 @@
+#define gc getchar
+long long int r_int() {
+  char c = gc();
+  while(c<'0' || c>'9') c = gc();
+  long long int ret = 0;
+  while(c>='0' && c<='9') {
+    ret = 10 * ret + c - 48;
+    c = gc();
+  }
+  return ret;
+}
+long long int gcd1(long long int ,long long int);
+long long int ArrayGCD(int *,long long int ,long long int );
+ 
+int main()
+{long long int t,n,q,i,q1,q2,s,e,g;
+int a[100000];
+t=r_int();
+while(t--)
+{
+    n=r_int();q=r_int();//scanf("%lld %lld",&n,&q);
+    for(i=0;i<n;i++)
+    {
+        a[i]=r_int();//scanf("%lld",&a[i]);
+    }
+ 
+    while(q--)
+    {
+        q1=r_int();q2=r_int();//scanf("%lld%lld",&q1,&q2);
+        if(q1==1)
+        {
+       s=ArrayGCD(a,q2,n-1);
+       printf("%lld\n",s);}
+       else if(q2==n)
+       {
+           s=ArrayGCD(a,0,q1-2);
+           printf("%lld\n",s);
+       }
+       else{
+        s=ArrayGCD(a,0,q1-2);
+        e=ArrayGCD(a,q2,n-1);
+        g=gcd1(s,e);
+        printf("%lld\n",g);
+       }
+    }
+}
+return 0;
+}
+long long int ArrayGCD(int *a,long long int first,long long int last)
+{
+   long long int x = 0, y = 0, gcd = 0;
+    if(first == last)
+    {
+        gcd = a[first];
+        return gcd;
+    }
+    else
+    {
+        x = ArrayGCD(a,first,(first+last)/2);
+        y = ArrayGCD(a,(first+last)/2+1,last);
+        if(x < 0)
+        {
+            x = -x;
+        }
+        if(y < 0)
+        {
+            y = -y;
+        }
+        while(x != y)
+        {
+            if(x > y)
+            {
+                x = x-y;
+            }
+            else
+            {
+                y = y-x;
+            }
+        }
+        gcd = x;
+        return gcd;
+    }
+}
+long long int gcd1(long long int a,long long int b)
+{
+    while (a != b)
+    {
+        if (a > b)
+        {
+            return gcd1(a - b, b);
+        }
+        else
+        {
+            return gcd1(a, b - a);
+        }
+    }
+    return a;
+} 

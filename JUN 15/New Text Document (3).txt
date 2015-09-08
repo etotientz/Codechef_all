@@ -1,0 +1,43 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define gc getchar
+ll rt() {
+  char c = gc();
+  while(c<'0' || c>'9') c = gc();
+  ll ret = 0;
+  while(c>='0' && c<='9') {
+    ret = 10 * ret + c - 48;
+    c = gc();
+  }
+  return ret;
+}
+int main(){
+ll t,i,p;
+t=rt();double sq1,sq2,sq3,ans,x1,y1,x2,y2,a1,area,T1,T2,t1,t2;
+while(t--)
+{T1=rt();T2=rt();t1=rt();t2=rt();
+        sq1=T1*T2;
+        sq2=(T2-t1)*(T2-t1)/2;
+        if(t1>=T2)sq2=0;
+        sq3=(T1-t2)*(T1-t2)/2;
+        if(t2>T1)sq3=0;
+        if(T1==T2){
+ 
+        ans=(sq1-sq2-sq3)/sq1;
+        printf("%.6lf\n",ans);
+}
+if(T1>T2){
+    if(t2<T1-T2){
+ans=sq1-sq2-((T1-t2+T1-T2-t2)/2*T2);
+printf("%.6lf\n",ans/sq1);
+}else{ans=(sq1-sq2-sq3)/sq1;
+              printf("%.6lf\n",ans);}
+               }
+               if(T1<T2){
+               if(t1<T2-T1){
+               ans=sq1-sq3-((T2-t1+T2-T1-t1)/2*T1);
+               printf("%.6lf\n",ans/sq1);
+               }else{ans=(sq1-sq2-sq3)/sq1;
+              printf("%.6lf\n",ans);}}
+              }}

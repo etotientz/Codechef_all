@@ -1,0 +1,31 @@
+#include<stdio.h>
+#define gc getchar
+long long int r_int() {
+  char c = gc();
+  while(c<'0' || c>'9') c = gc();
+  long long int ret = 0;
+  while(c>='0' && c<='9') {
+    ret = 10 * ret + c - 48;
+    c = gc();
+  }
+  return ret;
+}
+int main()
+{
+long long int n,k,j,sum=0,sum1=0,p;
+int t;
+t=r_int();
+while(t--)
+{n=r_int();
+sum=(n*(n+1))/2;
+k=r_int();
+while(k--)
+{p=r_int();sum1=sum1+p;
+}
+j=sum-sum1;
+if(j%2!=0)
+printf("Mom\n");
+else printf("Chef\n");
+}
+return 0;
+}

@@ -1,0 +1,30 @@
+#include<stdio.h>
+#include<iostream>
+using namespace std;
+int main()
+{
+	int t,n,i;
+	long long int q,p,k,*x,*y,profit=0;
+	
+	scanf("%d",&t);
+	while(t--)
+	{	
+	profit=0;
+	scanf("%d %lld",&n,&k);
+	
+	x=new long long int[n];
+	y=new long long int[n];
+	for(i=0;i<n;i++)
+	 scanf("%lld",&x[i]);
+	for(i=0;i<n;i++)
+	scanf("%lld",&y[i]);
+	for(i=0;i<n;i++)
+	{
+	 q=k/x[i];
+	 p=y[i]*q;
+	 if(p>profit)
+	  profit=p;
+	}	
+	printf("%lld\n",profit);
+}
+}  

@@ -1,0 +1,39 @@
+#include <map>
+#include <iostream>
+using namespace std;
+ 
+int mode(int array1[], int size1)
+{
+    // Create and load map container from input array
+ 
+    map<int,int> IntMap;
+    for( int a = 0; a < size1; ++a ) IntMap[array1[a]]++;
+ 
+    // Find maximum value in map.
+ 
+    map<int,int>::iterator it = IntMap.begin();
+    int max = it->first;
+    for( ; it != IntMap.end(); ++it )
+        if( IntMap[it->first] > IntMap[max] ) max = it->first;
+ 
+    return max;
+}
+ 
+int main()
+{   int t,i,*data,n;
+cin>>t;
+while(t--){
+    cin>>n;
+ data=new int[n];
+    for(i=0;i<n;i++){cin>>data[i];}
+    int y=mode(data,n);
+    int j=0;
+    for(int i=0;i<n;i++)
+        {
+            if(data[i]!=y)
+                j++;
+        }
+        cout<<j<<endl;
+    }
+    return 0;
+}

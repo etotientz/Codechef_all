@@ -1,0 +1,6 @@
+while(1):
+   n=input()
+   if(int(n)==42):
+       break
+   else:
+       print(int(n)) 

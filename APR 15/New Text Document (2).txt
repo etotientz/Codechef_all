@@ -1,0 +1,37 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define u long long int
+int main()
+{
+	long long int t;
+	scanf("%lld",&t);
+	while(t--)
+	{
+		u n,*p,*q,i=1,s=0;
+		scanf("%lld",&n);
+		p=(u*)malloc(n*sizeof(u));
+		q=(u*)malloc(n*sizeof(u));
+		scanf("%lld",&p[0]);
+		q[0]=0;
+		while(i<n)
+		{
+			scanf("%lld",&p[i]);
+			if(p[i-1]!=p[i])
+			{
+				if(q[i-1]!=1)
+				{
+					q[i-1]=q[i]=1;
+					s+=2;
+				}
+				else
+				{
+					q[i]=1;
+					s+=1;
+				}
+			}
+			i++;
+		}
+		printf("%lld\n",s);
+	}
+	return 0;
+}
