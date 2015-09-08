@@ -1,0 +1,31 @@
+
+#include<stdio.h>
+long int a[100001],i,q,n,m,d;
+char c;
+int main()
+{
+        scanf("%ld %ld",&n,&m);
+        for(i=0;i<n;i++)
+            scanf("%ld",&a[i]);
+       q=0;
+       while(m--)
+       {
+           getchar();
+           scanf("%c %ld",&c,&d);
+           if(c=='C')
+           {
+               q=(q+d)%n;
+           }
+           if(c=='A')
+           {
+               q=(q-d+n)%n;
+           }
+           if(c=='R')
+           {
+               d=(q+d-1)%n;
+               printf("%ld\n",a[d]);
+           }
+       }
+       return 0;
+}
+  

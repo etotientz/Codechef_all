@@ -1,0 +1,26 @@
+ #include<stdio.h>
+    int main(){
+    int ans[42];
+    int num[10];
+    int i,j;
+     
+     
+    for(i=0;i<10;i++){
+    int k=0,cnt=0;
+    for(;k<42;k++){
+    if(k<10)
+    scanf("%d",&num[k]);
+    ans[k]=0;
+    }
+    for(j=0;j<10;j++){
+    ans[num[j]%42]++;
+    }
+    for(k=0;k<42;k++)
+    if(ans[k]!=0)
+    cnt++;
+     
+    printf("%d\n",cnt);
+     
+    }
+    return 0;
+    }   

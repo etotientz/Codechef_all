@@ -1,0 +1,24 @@
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+    int n,m,i,j;
+    long int max,arr[1001],p;
+    scanf("%d",&n);
+    while(n--)
+    {
+        scanf("%d",&m);
+        for(i=0;i<m;i++){
+            scanf("%ld",&arr[i]);
+        }max=-1000000001;
+         for(i=0;i<m-1;i++)
+            {   for(j=i+1;j<m;j++)
+            {    p=(arr[j]-arr[i]);
+               if(max<p)
+                    max=p;
+            }
+            }
+            printf("%ld\n",max);
+    }
+    return 0;
+} 
