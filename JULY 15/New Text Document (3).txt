@@ -1,0 +1,44 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long int
+#define gc getchar_unlocked
+//long long modupow(long long base,long long exponent);
+ll rt() {
+  char c = gc();
+  while(c<'0' || c>'9') c = gc();
+  ll ret = 0;
+  while(c>='0' && c<='9') {
+    ret = 10 * ret + c - 48;
+    c = gc();
+  }
+  return ret;
+}
+int main()
+{
+ll num,n,i,k,n1,p,n2;
+n=rt();
+for(i=0;i<n;i++)
+{
+num=rt();
+if((num*4)%10==0){
+p=num*4;
+n1=10;
+while(p%n1==0)n1=n1*10;
+n1=n1/10;
+if(num%10==0){
+p=num;n2=10;while(p%n2==0)n2=n2*10;
+n2=n2/10;
+if(n1==n2)cout<<num<<endl;else{
+k=num*4;
+while(k%n1==0){while(k%n1==0)n1=n1*10;
+k=k*4;
+}cout<<k/4<<endl;
+}}
+else{k=num*4;
+while(k%n1==0){
+while(k%n1==0)n1=n1*10;
+k=k*4;
+}
+cout<<k/4<<endl;
+}}
+else cout<<num<<endl;}}

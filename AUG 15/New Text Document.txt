@@ -1,0 +1,18 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long int
+int main(){
+ll t,i,a,b,temp,c,p,q;
+cin>>t;
+//cout<<log2(1024*1024*16);
+while(t--){
+cin>>a>>b;c=0;
+//b=max(p,q);a=min(p,q);
+if(a==b)cout<<"0"<<endl;
+else if(a==1)cout<<(ll)log2(b)<<endl;
+else if(a==2&&b>a)cout<<(ll)log2(b)-1<<endl;
+else if(a==2&&b==1)cout<<"1"<<endl;
+else {
+while(b%a!=0){a=a/2;c++;}c+=(log2(b)-log2(a));cout<<c<<endl;
+}}
+}

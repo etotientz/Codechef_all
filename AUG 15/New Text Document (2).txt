@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+ 
+long long int t,p,k1,k2,p1,p2,i,y,c1,c2,j,k,d,v;
+char a[1000000],b[1000000];
+cin>>t;
+while(t--){p=0;k1=0;k2=0,c1=0;c2=0;d=0,p1=0,p2=0;
+cin>>a>>b;y=strlen(a);
+for(i=0;a[i]!='\0';i++){
+if(a[i]=='#'&&b[i]=='#')
+{p=1;cout<<"No"<<endl;break;
+}}
+if(p==0){cout<<"Yes"<<endl;i=0;while(a[i]=='.')i++;j=0;while(b[j]=='.')j++;//k=max(i-1,j-1);
+if(i>=j){v=0;j=i-1;d=j;}if(j>i){v=1;i=j-1;d=i;}
+for(i=d;i<y;i++){if(v==0){if(a[i]==a[i+1])continue;}else{if(b[i]==b[i+1])continue;}
+        if(a[i+1]=='#'&&b[i+1]=='.'){k1++;v=1;continue;}if(b[i+1]=='#'&&a[i+1]=='.'){k1++;v=0;continue;}
+   /* if((a[i]=='.'&&a[i+1]=='#')||(a[i]=='#'&&a[i+1]=='.'))
+        k1++;
+    if((b[i]=='.'&&b[i+1]=='#')||(b[i]=='#'&&b[i+1]=='.'))
+        k2++;*/
+}
+ 
+//for(i=0;a[i]!='\0';i++){
+    //if(a[i]=='.')k1++;else k2++;if(b[i]=='.')p1++;else p2++;
+ 
+/*if(k1>p1)cout<<k2<<endl;if(p1>k1)cout<<p2<<endl;
+if(k1==p1){for(i=d;i<y-1;i++){if(a[i]=='#'&&a[i+1]=='.'||a[i]=='.'&&a[i+1]=='#')c1++;
+if(b[i]=='#'&&b[i+1]=='.'||b[i]=='.'&&b[i+1]=='#')c2++;}*/
+cout<<(k1)<<endl;}}}
+ 
+ 
