@@ -1,0 +1,16 @@
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+ int t,n;
+int k,l;
+scanf("%d",&t);
+ while(t--)
+{
+ scanf("%d",&n);
+k=floor(log2(n));
+l=pow(2,k);
+ printf("%d\n",l);
+ 
+}
+} 

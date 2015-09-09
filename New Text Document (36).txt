@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+long long int t;
+string s;
+cin>>t;
+while(t--)
+{
+cin>>s;
+long long int i=0;
+long long int sum=0;
+for(i=0;s[i];i++)
+{
+sum=sum+s[i];
+}
+sum=sum/s.length();
+char b= sum;
+cout<<b<<endl;
+}
+}

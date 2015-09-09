@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define gc getchar_unlocked
+#define ll long long
+ll rt() {
+  char c = gc();
+  while(c<'0' || c>'9') c = gc();
+  ll ret = 0;
+  while(c>='0' && c<='9') {
+    ret = 10 * ret + c - 48;
+    c = gc();
+  }
+  return ret;
+}
+int main(){
+ll t,n,min1,i,p,*a;
+t=rt();
+while(t--)
+{p=1;n=rt();
+a=new ll[n];;
+for(i=0;i<n;i++)
+    a[i]=rt();
+min1=a[0];
+for(i=1;i<n;i++){
+    if(a[i]<min1){
+        p++;min1=a[i];
+    }
+}cout<<p<<endl;
+}}
+ 

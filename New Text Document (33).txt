@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define gc getchar
+#define ll long long
+ll rt() {
+  char c = gc();
+  while(c<'0' || c>'9') c = gc();
+  ll ret = 0;
+  while(c>='0' && c<='9') {
+    ret = 10 * ret + c - 48;
+    c = gc();
+  }
+  return ret;
+}
+int main(){
+ll t,n,*a,i,sum;
+t=rt();
+while(t--)
+{
+n=rt();sum=0;
+a=new ll[n];
+for(i=0;i<n;i++)
+{a[i]=rt();sum+=(a[i]/(i+1));}
+if(sum%2==1)cout<<"ALICE"<<endl;
+else cout<<"BOB"<<endl;
+}}
+ 

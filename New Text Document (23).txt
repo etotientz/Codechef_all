@@ -1,0 +1,9 @@
+t=int(raw_input())
+while t>0:
+    b=input()
+    t2=b/2
+    t1=t2*t2
+    t1=t1-t2
+    t1=t1/2
+    print t1
+    t=t-1 

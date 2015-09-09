@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define gc getchar_unlocked
+int rt() {
+  char c = gc();
+  while(c<'0' || c>'9') c = gc();
+  int ret = 0;
+  while(c>='0' && c<='9') {
+    ret = 10 * ret + c - 48;
+    c = gc();
+  }
+  return ret;
+}
+int main()
+{ll t,n,i,sum,j,k;
+t=rt();
+while(t--)
+{ll f=0;
+n=rt();k=rt();
+ll a[n];
+for(i=0;i<n;i++)
+a[i]=rt();
+for(i=0;i<pow(2,n);i++){
+sum=0;
+for(j=0;j<n;j++){
+if(i&(1<<j))
+sum+=a[j];
+}
+if(sum==k)
+    {f=1;cout<<"Yes"<<endl;break;
+}}
+if(f==0)cout<<"No"<<endl;
+}
+}
+ 

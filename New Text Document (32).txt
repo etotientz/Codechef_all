@@ -1,0 +1,32 @@
+#include<stdio.h>
+long gcd(long b,long c);
+int main(){ 
+	int t; 
+	int n,i;
+	long a[1001];
+	scanf("%d",&t); 
+	while(t--)
+	{ 
+      scanf("%d",&n);
+      for(i=0;i<n;i++)
+      scanf("%ld",&a[i]);
+      long b=a[0];
+      for(i=0;i<n;i++)
+      {
+      	b=gcd(b,a[i]);
+      }
+      printf("%ld\n",b);
+    } 
+		return 0;
+}
+long gcd(long b,long c)
+{
+    long r=1;
+    while(r>0)
+    {
+    r=b%c;
+    b=c;
+    c=r;
+    }
+    return b;
+}  

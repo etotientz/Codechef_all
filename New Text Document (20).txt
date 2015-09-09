@@ -1,0 +1,24 @@
+#include<bits/stdc++.h>
+ 
+using namespace std;
+ 
+int main()
+{
+	int T;
+	unsigned long long low_lim,upp_lim,k,n,S,diff;
+	cin>>T;
+	while(T--)
+	{
+		cin>>n>>S;
+		diff=S-n;
+		for(k=1;k<=n;k++)
+		{
+			low_lim=k*(k-1)/2;
+			upp_lim=k*(k+1)/2 - 1;
+			if(diff>=low_lim && diff<=upp_lim)
+				break;
+		}
+		cout<<n-k<<endl;
+	}
+	return 0;
+}  
