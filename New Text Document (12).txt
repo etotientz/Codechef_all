@@ -1,0 +1,30 @@
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+	int t,n,i,j,c;
+	scanf("%d",&t);
+	while(t--)
+	{
+		long long int sum=0;
+		scanf("%d%d",&n,&c);
+		int a[n];
+		for(i=0;i<n;i++)
+		scanf("%d",&a[i]);
+		int x=(int)pow(2,n);
+		int val=99999999;
+		for(i=0;i<x;i++)
+		{
+			sum=0;
+			for(j=0;j<n;j++)
+			{
+				if(i & (1<<j))
+				sum=sum+a[j];
+			}
+			if(c-sum>=0 && c-sum<val)
+			val=c-sum;
+		}
+		printf("%d\n",val);
+	}
+	return 0;
+}  

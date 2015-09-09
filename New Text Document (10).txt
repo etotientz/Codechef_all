@@ -1,0 +1,33 @@
+#include <stdio.h>
+int palin(int n)
+{
+    int x=0,num;
+    num=n;
+    while(n!=0)
+    {
+        x*=10;
+        x+=n%10;
+        n/=10;
+    }
+    if(num==x)
+        return 1;
+    else
+        return 0;
+}
+int main()
+{
+    int t,n,s;
+    scanf("%d",&t);
+    while(t--)
+    {
+        s=0;
+        scanf("%d",&n);
+        while(s!=1)
+        {
+            n++;
+            s=palin(n);
+        }
+        printf("%d\n",n);
+    }
+    return 0;
+} 

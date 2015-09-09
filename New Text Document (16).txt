@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <math.h>
+int main() {
+    int t;
+    scanf("%d",&t);
+    while(t--)
+    {
+        double a,b,c;
+        float z;
+        scanf("%lf %lf %lf",&a,&b,&c);
+        //printf("%lf %lf %lf\n",a,b,c);
+        if((a+b)>c && (b+c)>a && (c+a)>b)
+        {
+            z=(a*b*c)/sqrt((a+b+c)*(a+b-c)*(b+c-a)*(c+a-b));
+            printf("%.2f\n",z);
+        }
+        else
+            printf("%.2f\n",0.00);
+ 
+ 
+    }
+               return 0;
+}  

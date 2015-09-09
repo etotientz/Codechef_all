@@ -1,0 +1,24 @@
+#include<stdio.h>
+#include<math.h>
+long long fact(int n,int k)
+{
+int i;
+long long ans=1;
+for(i=n;i>n-k;i--)
+ans=(ans*i)%(long long)(pow(10,9)+7);
+return ans;
+}
+int main()
+{
+int t,i;
+scanf("%d",&t);
+for(i=0;i<t;i++)
+{
+int n,k;
+long long ans;
+scanf("%d%d",&n,&k);
+ans=fact(n,k);
+printf("%lld\n",ans);
+}
+return 0;
+}   

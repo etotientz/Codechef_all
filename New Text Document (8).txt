@@ -1,0 +1,37 @@
+#include<stdio.h>
+ 
+int main()
+{
+int a[1000000],t,n,p,i,temp,y,j;
+scanf("%d",&t);
+while(t--)
+{
+    scanf("%d",&n);
+    a[1]=1;
+    p=1;
+    i=1;
+    temp=0;
+    while(i<=n)
+    {
+            for(j=1;j<=p;j++)
+            {
+             y=a[j]*i+temp;
+             a[j]=y%10;
+             temp=y/10;
+            }
+            while(temp!=0)
+            {
+                p=p+1;
+                a[p]=temp%10;
+                temp=temp/10;
+                }
+                i=i+1;
+            }
+        for(i=p;i>=1;i--)
+        {
+        printf("%d",a[i]);
+        }
+printf("\n");
+    }
+return 0;
+}

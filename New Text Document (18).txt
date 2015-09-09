@@ -1,0 +1,19 @@
+#include <stdio.h>
+ 
+int main() {
+	int t;
+	scanf("%d", &t);
+	int n, k;
+	long long int p;
+	while(t--) {
+		scanf("%d%d", &n, &k);
+		if((n+k) % 5 == 0) {
+			p = (3*n - 2*k)/5;
+			
+			if(p < 0) p = -p;
+			printf("%lld\n", p);
+		}
+		else printf("-1\n");
+	}
+	return 0;
+}  

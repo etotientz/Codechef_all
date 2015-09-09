@@ -1,0 +1,18 @@
+#define gc getchar_unlocked
+int readint() {
+  char c = gc();
+  while(c<'0' || c>'9') c = gc();
+  int ret = 0;
+  while(c>='0' && c<='9') {
+    ret = 10 * ret + c - 48;
+    c = gc();
+  }
+  return ret;
+}
+int main()
+{
+	int a,b,c;
+	a=readint();b=readint();c=readint();
+	printf("%d\n",((3*a)+c));
+	return 0;
+} 

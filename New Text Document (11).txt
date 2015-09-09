@@ -1,0 +1,17 @@
+#include<stdio.h>
+#include<string.h>
+#include<iostream>
+using namespace std;
+int main()
+{ int t,i;
+char a[1001];
+cin>>t;
+while(t--)
+{cin>>a;int sum=0;
+for(i=0;a[i]!='\0';i++)
+{
+    sum+=a[i]-96;
+}
+cout<<sum<<endl;}
+return 0;
+}
