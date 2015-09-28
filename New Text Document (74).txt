@@ -1,0 +1,17 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+string s,a1,a2;int t;
+cin>>t;while(t--)
+{cin>>s;
+int n=s.length();
+a1=s.substr(0,n/2);
+a2=s.substr(n/2,n);
+for (string::iterator it=a1.end()-1; it!=a1.begin()-1; --it)
+    cout << *it;
+ 
+    for (string::iterator it=a2.end()-1; it!=a2.begin()-1; --it)
+    cout << *it;
+    cout<<endl;
+}
+}

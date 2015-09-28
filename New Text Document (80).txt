@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+ 
+using namespace std;
+ 
+int main()
+{
+    int m;
+    long long int mid,n,q;
+    cin>>n>>m;
+    while(m--)
+    {
+        cin>>q;
+        if(q<n+2)
+        {
+            cout<<"0\n";
+            continue;
+        }
+        mid=2*n + 1;
+        if(q<mid)
+            cout<<n-(mid-q)<<"\n";
+        else
+            cout<<n-(q-mid)<<"\n";
+    }
+    return 0;
+}  

@@ -1,0 +1,26 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+	int N, Q;
+	scanf("%d%d", &N, &Q);
+	vector<int> row(N, 0), col(N, 0);
+	for (int q = 0; q < Q; ++q) {
+ 
+		char type[7];
+		int i, x;
+		scanf("%s%d%d", type, &i, &x);
+		--i;
+		if(strcmp(type,"RowAdd")==0) {
+			row[i] += x;
+		} else {
+			col[i] += x;
+		}
+	}
+ 
+	int maxR = *max_element(row.begin(), row.end());
+	int maxC = *max_element(col.begin(), col.end());
+	int ans = maxR + maxC;
+	printf("%d\n", ans);
+	return 0;
+} 

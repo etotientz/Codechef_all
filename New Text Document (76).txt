@@ -1,0 +1,35 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define gc getchar
+int rt() {
+  char c = gc();
+  while(c<'0' || c>'9') c = gc();
+  int ret = 0;
+  while(c>='0' && c<='9') {
+    ret = 10 * ret + c - 48;
+    c = gc();
+  }
+  return ret;
+}
+int main(){
+ll t;
+int i,l,m,x,y,*p;
+int sum;
+//vector<int>v;
+t=rt();
+while(t--){m=rt();x=rt();y=rt();
+int k=x*y;p=new int[m];
+for(i=0;i<m;i++)
+    p[i]=rt();
+//v.push_back(g);}
+sum=0;
+sort(p,p+m);if(p[0]>k)sum+=(p[0]-k-1);
+if(100-(p[m-1]+k)>0)
+    sum+=100-(p[m-1]+k);
+for(i=0;i<m-1;i++){
+l=(p[i+1]-k)-(p[i]+k);
+if(l>0)sum+=l-1;}
+cout<<sum<<endl;}
+}
+ 

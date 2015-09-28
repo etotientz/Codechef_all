@@ -1,0 +1,12 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long int
+int main(){
+ll t,n,i,*p;
+cin>>t;
+while(t--){
+cin>>n;p=new ll[n];
+for(i=0;i<n;i++)cin>>p[i];
+i=*min_element(p,p+n);
+cout<<i*(n-1)<<endl;}
+}
