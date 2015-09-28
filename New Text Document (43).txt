@@ -1,0 +1,39 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+//#define m 1000000007
+ll modupow(ll base,ll exponent);
+#define gc getchar
+ll rt() {
+  char c = gc();
+  while(c<'0' || c>'9') c = gc();
+  ll ret = 0;
+  while(c
+        >='0' && c<='9') {
+    ret = 10 * ret + c - 48;
+    c = gc();
+  }
+  return ret;
+}
+ 
+int main()
+{ll t,n,ans;
+t=rt();
+while(t--)
+{ans=0;
+n=rt();
+ans=modupow(7,n);
+cout<<ans%1000000007<<endl;}}
+ 
+ll modupow(ll base,ll exponent)
+{
+    ll result = 1;
+    while (exponent > 0)
+    {
+        if (exponent % 2 == 1)
+          result = (result * base) % 1000000007;
+        exponent = exponent >> 1;
+        base = (base * base) % 1000000007;
+    }
+    return (result%1000000007);
+}

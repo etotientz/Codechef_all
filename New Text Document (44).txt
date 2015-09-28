@@ -1,0 +1,32 @@
+import java.math.BigInteger;
+import java.util.Scanner;
+ 
+ 
+ class CodeChef_TwoFrnds {
+ 
+	
+	public static void main(String[] args)
+	{
+		Scanner sc=new Scanner(System.in);
+		int test=sc.nextInt();
+		while(test!=0)
+		{
+			test--;
+		 BigInteger n1=sc.nextBigInteger();
+		 BigInteger n2=sc.nextBigInteger();
+		 BigInteger n3=n2.mod(n1);
+		 if(n3.intValue()==0)
+		 {
+			 System.out.println("CORRECT");
+		 }
+		 else
+		 {
+			 System.out.println("WRONG");
+		 }
+			 
+		}
+		
+		
+	}
+ 
+} 
