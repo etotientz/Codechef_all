@@ -1,0 +1,34 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t,n,f;
+    char s[1000];
+    scanf("%d",&t);
+    while(t--)
+    {
+        scanf("%d",&n);
+        f=1;
+        char c;
+        scanf("%s",s);
+        while(n--)
+        {
+            c=s[n];
+            if(c=='I')
+            {
+                f=0;
+                printf("INDIAN\n");
+                break;
+            }
+            else if(c=='Y')
+            {
+                f=0;
+                printf("NOT INDIAN\n");
+                break;
+            }
+        }
+        if(f==1)
+        printf("NOT SURE\n");
+    }
+    return 0;
+} 

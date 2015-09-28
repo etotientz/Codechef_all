@@ -1,0 +1,34 @@
+#include<bits/stdc++.h>
+using namespace std;
+ 
+int main(){
+int t,i,j;
+double lenc;
+cin>>t;
+while(t--){
+    char s[1001];
+    
+    scanf("%s",s);
+    double len=strlen(s);
+ 
+ 
+    int c,mc=0;
+    for(i=0;i<len;i++){
+        c=0;
+        for(j=0;j<len;j++){
+            if(s[j]==s[i]){
+                c++;
+            }
+            if(c>mc)
+            mc=c;
+        }
+    }
+    lenc=len/2;
+    if(mc==(lenc))
+    cout<<"YES"<<endl;
+    else
+    cout<<"NO"<<endl;
+ 
+}
+return 0;
+}  

@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+using namespace std;
+    int main()
+    {
+        int t;
+        char a[100001];
+        scanf("%d",&t);
+        while(t--)
+        {
+            scanf("%s", a);
+            int l=strlen(a);
+            int max=0, c=0, i;
+            for(i=0; i<l; i++)
+            {
+                if(a[i]=='(')
+                    c++;
+                else c--;
+                if(c>max)
+                    max=c;
+            }
+            for(i=0; i<2*max; i++)
+            {
+                if(i<max)
+                    printf("(");
+                else printf(")");
+            }
+            printf("\n");
+        }
+        return 0;
+    }   

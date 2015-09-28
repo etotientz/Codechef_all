@@ -1,0 +1,41 @@
+#include<bits/stdc++.h>
+ 
+using namespace std;
+ 
+long long int REV(int N)
+{
+    int R  = 0;
+    while(N>0)
+    {
+        R = R*10 + N%10;
+        N = N/10;
+    }
+    
+    return R;
+}
+ 
+int main()
+{
+    int T;
+    cin>>T;
+    while(T--)
+    {
+        long long int A, SUM, C = 1;
+        cin>>A;
+        int B = REV(A);
+        SUM = A + B;
+        while(1)
+        {
+           if(SUM==REV(SUM))
+           {
+               cout<<C<<" "<<SUM<<endl;
+               break;
+           }
+           else
+           {
+               C++;
+               SUM = SUM + REV(SUM);
+           }
+        }
+    }
+}  
