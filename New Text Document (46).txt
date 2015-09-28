@@ -1,0 +1,14 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+int main(){
+ll t,n,x,y,i;
+cin>>t;
+while(t--){
+cin>>x;i=0;
+while(x>0){while(x>2048){x=x-2048;i++;}
+y=floor(log2(x));
+x=x-pow(2,y);
+i++;}
+cout<<i<<endl;
+}}

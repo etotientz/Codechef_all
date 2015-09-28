@@ -1,0 +1,26 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+ 
+/**
+ *
+ * @author SatrapRathore
+ */
+import java.util.*;
+ class Maxsub{public static void main(String args[])
+{ long t,n,max,i;
+Scanner obj=new Scanner(System.in);
+t=obj.nextLong();
+while(t>0){
+n=obj.nextLong();max=0;
+while(n>0){
+i=obj.nextLong();
+if(i>max)
+max=i;
+n--;}
+System.out.println(max);
+t--;
+}}}
+ 

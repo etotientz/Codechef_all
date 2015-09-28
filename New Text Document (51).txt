@@ -1,0 +1,26 @@
+
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define gc getchar
+ll rt() {
+  char c = gc();
+  while(c<'0' || c>'9') c = gc();
+  ll ret = 0;
+  while(c>='0' && c<='9') {
+    ret = 10 * ret + c - 48;
+    c = gc();
+  }
+  return ret;
+}
+int main()
+{ll t,n,i,max1;
+t=rt();
+while(t--)
+{
+n=rt();max1=0;
+while(n--){
+i=rt();
+if(i>max1)
+max1=i;
+}cout<<max1<<endl;}}

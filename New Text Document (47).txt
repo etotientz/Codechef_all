@@ -1,0 +1,16 @@
+#include<stdio.h>
+ 
+int main()
+{
+    int n,k,t;
+    float p,q;
+    scanf("%d",&t);
+    while(t--)
+    {
+        scanf("%d %d",&n,&k);
+        p=1/(float)(n);
+        q=(1-p)/(float)(n-k-1);
+        printf("%.6f\n",q);
+    }
+    return 0;
+}  

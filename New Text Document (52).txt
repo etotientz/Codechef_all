@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define gc getchar_unlocked
+ll rt() {
+  char c = gc();
+  while(c<'0' || c>'9') c = gc();
+  ll ret = 0;
+  while(c>='0' && c<='9') {
+    ret = 10 * ret + c - 48;
+    c = gc();
+  }
+  return ret;
+}
+int main()
+{ll t,*a,n,i,zero,one;
+t=rt();
+while(t--){
+n=rt();zero=0;one=0;a=new ll[n];
+for(i=0;i<n;i++){
+a[i]=rt();
+if(a[i]==0)zero++;}
+one=n-zero;
+if(one%2==0)
+cout<<zero<<endl;
+else cout<<one<<endl;
+}}
