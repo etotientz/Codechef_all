@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define gc getchar
+ll rt() {
+  char c = gc();
+  while(c<'0' || c>'9') c = gc();
+  ll ret = 0;
+  while(c>='0' && c<='9') {
+    ret = 10 * ret + c - 48;
+    c = gc();
+  }
+  return ret;
+}
+int main()
+{ll t,n,i,c;
+char a[100001];
+t=rt();
+while(t--)
+{cin>>a;c=0;
+for(i=0;i<strlen(a)-1;i++){
+if((a[i]=='X'&&a[i+1]=='X')||(a[i]=='Y'&&a[i+1]=='Y'))
+c++;}
+cout<<c<<endl;
+}}
+ 

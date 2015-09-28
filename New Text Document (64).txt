@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+main(){
+ 
+    int t, n;
+    cin >> t;
+    while(t--){
+ 
+        cin >> n;
+        int arrival[n], exit[n], stay[1000] = {0}, i, j;
+ 
+        for(i=0; i<n; i++)
+            cin >> arrival[i];
+ 
+        for(i=0; i<n; i++)
+            cin >> exit[i];
+ 
+        for(i=0; i<n; i++){
+ 
+            for(j=arrival[i]-1; j<exit[i]-1; j++){
+ 
+                stay[j]++;
+            }
+        }
+        cout << *max_element(stay, stay+1000) << endl;
+    }
+ 
+}

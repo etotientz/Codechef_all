@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define gc getchar
+ll rt() {
+  char c = gc();
+  while(c<'0' || c>'9') c = gc();
+  ll ret = 0;
+  while(c>='0' && c<='9') {
+    ret = 10 * ret + c - 48;
+    c = gc();
+  }
+  return ret;
+}
+int main()
+{ll t,n,i,*a,k,sum1;
+t=rt();
+while(t--)
+{k=0;sum1=0;
+n=rt();a=new ll[n];
+for(i=0;i<n;i++)a[i]=rt();
+sort(a,a+n);
+    long long int ans=0;
+for(i=1; i<n; i++)
+sum1+=(a[i]*a[0]);
+ cout<<sum1<<endl;
+ 
+    }}
+ 
