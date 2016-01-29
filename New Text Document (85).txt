@@ -1,0 +1,7 @@
+for j in range(input()):
+	a=raw_input()
+	l=[]
+	for i in range(len(a)-1):
+		ssub=a[i:i+2:1]
+		l.append(ssub)
+	print len(set(l)) 

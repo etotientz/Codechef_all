@@ -1,0 +1,6 @@
+y=raw_input()
+x=raw_input()
+if(x in y):
+    print("Y")
+else:
+    print("N") 
