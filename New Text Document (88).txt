@@ -1,0 +1,14 @@
+import math
+for i in range(input()):
+	n=input()
+	t=False
+	p=2
+	while p<=math.sqrt(n):
+		if n%p==0:
+			t=True
+			break
+		p+=1
+	if t:
+		print "no"
+	else:
+		print "yes" 
