@@ -49,6 +49,8 @@ def distance_on_unit_sphere(lat1, long1, lat2, long2):
 s=distance_on_unit_sphere(1,2,1,1)
 print s """
 from geopy.distance import great_circle
-newport_ri = (1, 1)
-cleveland_oh = (2,1)
+lat1,long1=map(int,raw_input().split())
+lat2,long2=map(int,raw_input().split())
+newport_ri = (lat1,long1)
+cleveland_oh = (lat2,long2)
 print(great_circle(newport_ri, cleveland_oh).meters)
