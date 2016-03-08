@@ -1,7 +1,7 @@
 #include<stdio.h>
 long gcd(long b,long c);
 int main(){ 
-	int t; 
+	int t;
 	int n,i;
 	long a[1001];
 	scanf("%d",&t); 
