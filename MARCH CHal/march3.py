@@ -1,27 +1,104 @@
 for t in range(input()):
-	s=raw_input()
-	l=len(s)
-	if l==1:
-		print "NO"
-		continue
-	if l%2==0:
-		a=s[0:l/2]
-		if a==s[l/2:]:
-			print "YES"
-		else:
-			print "NO"
+	S=raw_input()
+	n=len(S)
+	p=0
+	if n%2==0:
+        
+              for i in range(n/2):
+                  A[i]=S[i]
+                  B[i]=S[(n/2)+i]
+              
+              A[i]='\0'
+              B[i]='\0'
+              if A==B:
+                          print "YES"
+              else:
+                          print "NO"
+         
 	else:
-		li=list(s)
-		l,p=len(li),0
-		for i in range(0,l):
-			c=0
-			a=li
-			a.pop(c)
-			c+=1
-			b=a[0:l/2]
-			if b==a[l/2:]:
-				p=1
-		if p==1:
-			print "YES"
-		else:
-			print "NO"
+                for i in range(n/2):
+              
+                  A[i]=S[i]
+                  B[i]=S[i+(n/2)]
+              
+                #B[i]=S[i+(n/2)]
+                A[i]='\0'
+                i+=1
+                B[i+(n/2)]='\0'
+                i=0;
+                j=0;
+                while A[i]!='\0' and B[j]!='\0':
+                  
+                      if A[i]==B[j]:
+                      
+                         i+=1
+                         j+=1
+                      
+
+                      else:
+                      
+                         j+=1
+                         p+=1
+                        
+                      
+
+                      if p==2:
+                                break
+                  
+                if p==0 or p==1:
+                        print "YES"
+
+                else:
+                  
+                        p=0
+                        for i in range(n/2):
+                        
+                            A[i]=S[i]
+                            B[i]=S[i+(n/2)+1]
+                        
+
+                        B[i]='\0'
+                        #A[i]=S[i]
+                        i+=1
+                        A[i]='\0'
+                        i=0
+                        j=0
+                        while A[j]!='\0' and B[i]!='\0':
+                  
+                              if A[j]==B[i]:
+                      
+                                 i+=1
+                                 j+=1
+                      
+
+                              else:
+                      
+                                 j+=1
+                                 p+=1
+                         
+
+                              if p==2:
+                    `                   break
+                  
+                        if p==1 or p==0:
+                                  print "YES"
+
+                        else:
+                          print "NO"
+                  
+             
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
