@@ -1,12 +1,11 @@
-def fn(t,x):
-	if t==0:
-		return x
-	else:
-		return t*fn(t-1,x)%1000003
+l=[0]*1000003
+l[0]=1
+for i in range(1,len(l)):
+        l[i]=i*l[i-1]%1000003
 for i in range(input()):
 	n,x=map(int,raw_input().split())
-	if n>=1000003 or x>=1000003 or x==0:
+	if n>=1000003:
                 print "0"
 	else:
                 
-                print fn(n,x)
+                print ((l[n])*x)%1000003
