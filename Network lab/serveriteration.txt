@@ -1,0 +1,249 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <math.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+ /* THE SERVER PROCESS */
+ /* Compile this program with cc server.c -o server
+ and then execute it as ./server &
+ */
+
+
+main()
+{
+ int sockfd, newsockfd ; /* Socket descriptors */
+ int clilen;
+ int ans;
+ int value;
+ struct sockaddr_in cli_addr, serv_addr;
+ int i, j, c;
+ int duplicate;
+ int flag;
+ char buf[100]; /* We will use this buffer for communication */
+ /* The following system call opens a socket. The first parameter
+ indicates the family of the protocol to be followed. For internet
+ protocols we use AF_INET. For TCP sockets the second parameter
+ is SOCK_STREAM. The third parameter is set to 0 for user
+ applications.
+ */
+ if ((sockfd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
+ printf("Cannot create socket\n"); 
+ exit(0);
+ }
+ /* The structure "sockaddr_in" is defined in <netinet/in.h> for the
+ internet family of protocols. This has three main fields. The
+ field "sin_family" specifies the family and is therefore AF_INET
+ for the internet family. The field "sin_addr" specifies the
+ internet address of the server. This field is set to INADDR_ANY
+ for machines having a single IP address. The field "sin_port"
+ specifies the port number of the server.
+ */
+ serv_addr.sin_family = AF_INET;
+ serv_addr.sin_addr.s_addr = inet_addr("127.0.0.1");
+ serv_addr.sin_port = htons(50071);
+ /* With the information provided in serv_addr, we associate the server
+ with its port using the bind() system call.
+ */
+ if (bind(sockfd, (struct sockaddr *) &serv_addr,
+ sizeof(serv_addr)) < 0) {
+ printf("Unable to bind local address\n");
+ exit(0);
+ }
+ listen(sockfd, 5); /* This specifies that up to 5 concurrent client
+ requests will be queued up while the system is
+ executing the "accept" system call below.
+ */
+ /* In this program we are illustrating an iterative server -- one
+ which handles client connections one by one.i.e., no concurrency.
+ The accept() system call returns a new socket descriptor
+ which is used for communication with the server. After the
+ communication is over, the process comes back to wait again on
+ the original socket descriptor.
+ */
+ while (1) {
+ /* The accept() system call accepts a client connection.
+ It blocks the server until a client request comes.
+ The accept() system call fills up the client's details
+ in a struct sockaddr which is passed as a parameter.
+ The length of the structure is noted in clilen. Note
+ that the new socket descriptor returned by the accept()
+ system call is stored in "newsockfd".
+ */
+ clilen = sizeof(cli_addr);
+ newsockfd = accept(sockfd, (struct sockaddr *) &cli_addr,
+ &clilen) ;
+ if (newsockfd < 0) {
+ printf("Accept error\n");
+ exit(0);
+ } 
+ 
+
+ while (1) {
+ for(i=0; i < 100; i++) buf[i] = '\0';
+ recv(newsockfd, buf, 100, 0);
+ 
+ if (((buf[0]) == '-') && (buf[1] == '1')) {
+  ans = -1;
+ } else {
+ 	
+		  j = 0;
+		  i = 0;
+		  c = 0;
+		  value = 0;
+		  ans = 0;
+		  while (('0' <= buf[j]) && (buf[j] <= '9')) {
+    	  	c++;
+    	 	j++;
+		  }
+
+		  
+		  while (c) {
+		  	value += ((buf[i] - '0') * pow(10, (c - 1)));
+		  	c--;
+		  	i++;
+		  }
+
+		  ans = ans + value;
+		  //printf( "answer is = %d\n", ans);
+
+
+		 	while (buf[i] != '\0') {
+		 		  value = 0;
+		 		  c = 0;
+
+		 		  //printf( "answer is = %d\n", ans);
+
+				  while (buf[i] == ' ') {
+				  i++;
+				  } 
+				  
+				  if ( buf[i] == '+') {
+				  			i++;
+						  
+						  while (buf[i] == ' ') {
+							i++;
+							}
+
+						  j = i;
+						  c = 0;
+						  while (('0' <= buf[j]) && (buf[j] <= '9')) {
+						  	c++;
+						  	j++;
+						  }
+
+						  while (c) {
+						  	value += ((buf[i] - '0') * pow(10, (c - 1)));
+						  	c--;
+						  	i++;
+						  }
+
+						  //printf(" value = %d",value);
+
+						  ans = ans + value;
+						  //printf("ans itt = %d\n", ans);
+						  
+				   } else if ( buf[i] == '-') {
+						    i++;
+						
+						  while (buf[i] == ' ') {
+							i++;
+							}
+
+						  j = i;
+						  c = 0;
+						  while (('0' <= buf[j]) && (buf[j] <= '9')) {
+						  	c++;
+						  	j++;
+						  }
+
+						  while (c) {
+						  	value += ((buf[i] - '0') * pow(10, (c - 1)));
+						  	c--;
+						  	i++;
+						  }
+						  //printf(" value = %d",value);
+						  ans = ans - value;
+						  //printf("ans itt = %d\n", ans);
+						  
+				   } else if ( buf[i] == '*') {
+				   	      i++;
+						    
+						  while (buf[i] == ' ') {
+							i++;
+							}
+
+						  j = i;
+						  c = 0;
+						  while (('0' <= buf[j]) && (buf[j] <= '9')) {
+						  	c++;
+						  	j++;
+						  }
+
+						  while (c) {
+						  	value += ((buf[i] - '0') * pow(10, (c - 1)));
+						  	c--;
+						  	i++;
+						  }
+						  //printf(" value = %d",value);
+						  ans = ans * value;
+						  //printf("ans itt = %d\n", ans);
+						  
+				   } else if ( buf[i] == '/') {
+						    i++;
+
+						  while (buf[i] == ' ') {
+							i++;
+							}
+
+						  j = i;
+						  c = 0;
+						  while (('0' <= buf[j]) && (buf[j] <= '9')) {
+						  	c++;
+						  	j++;
+						  }
+
+						  while (c) {
+						  	value += ((buf[i] - '0') * pow(10, (c - 1)));
+						  	c--;
+						  	i++;
+						  }
+						  //printf(" value = %d",value);
+						  ans = ans / value;
+						  //printf("ans itt = %d\n", ans);
+						  
+			  	  }
+			}
+ }
+c = 0;
+duplicate = ans;
+while (duplicate) {
+	duplicate = duplicate / 10;
+	c++;
+}
+c--;
+//int c1 = c;
+
+//printf( "answer is = %d\n", ans);
+
+for(i = 0; i < 100; i++) {
+	buf[i] = '\0';
+}
+
+ if( ans == 0) {
+ 	buf[0] = 0 + '0';
+ }
+ while (ans) {
+ 	buf[c] = (ans % 10) + '0';
+ 	ans = ans / 10;
+ 	c--;
+ }
+
+
+send(newsockfd, buf, strlen(buf) + 1, 0); 
+}
+close(newsockfd);
+}
+} 
